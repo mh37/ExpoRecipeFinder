@@ -20,8 +20,7 @@ export default function App() {
         style={{
           height: 1,
           width: "80%",
-          backgroundColor: "gray",
-          marginLeft: "10%"
+          backgroundColor: "gray"
         }}
       />
     );
@@ -35,7 +34,7 @@ export default function App() {
         keyExtractor={(item, index) => index.toString()} 
         renderItem={({item}) => 
           <View>
-            <Text style={{fontSize: 18, fontWeight: "bold"}}>{item.strMeal}</Text>
+            <Text style={{fontSize: 16}}>{item.strMeal}</Text>
             <Image 
               style={styles.thumbnail}
               source={{uri: item.strMealThumb}} 
@@ -43,7 +42,7 @@ export default function App() {
           </View>}
         data={recipes} 
         ItemSeparatorComponent={listSeparator} /> 
-      <TextInput style={{fontSize: 18, width: 200}} placeholder='keyword' 
+      <TextInput style={styles.textInput} placeholder='keyword' 
         onChangeText={text => setKeyword(text)} />
       <Button title="Find" onPress={getRecipes
   } />
@@ -57,8 +56,12 @@ const styles = StyleSheet.create({
   alignItems: 'center',
   justifyContent: 'center',
  },
- thumbnail : {
+ thumbnail: {
   width: 50,
   height: 50,
+ },
+ textInput: {
+  fontSize: 18, 
+  width: 200
  }
 });
